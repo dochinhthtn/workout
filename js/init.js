@@ -13,7 +13,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+import { getFirestore, collection, doc, getDocs, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -40,5 +40,5 @@ const db = getFirestore(app);
 export {
     app,
     auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, signOut,
-    db, collection, getDocs, addDoc
+    db, collection, doc, getDocs, addDoc, setDoc
 }; // cú pháp export { <tên biến>, ... }

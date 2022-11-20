@@ -59,10 +59,11 @@
             <div class="col">
                 <h4>Tạo tài khoản</h4>
 
-                <form>
+                <form id="register-form">
                     <div class="mb-3">
                         <label class="form-label">Họ và tên <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" placeholder="Nhập vào họ và tên" name="fullname">
+                        <div class="text-danger" id="fullname-error"></div>
                     </div>
 
                     <div class="row mb-3">
@@ -82,7 +83,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Mục đích tập luyện</label>
-                        <select multiple name="purpose" class="form-select">
+                        <select multiple name="purposes" class="form-select">
                             <option>Mục đích 1</option>
                             <option>Mục đích 2</option>
                             <option>Mục đích 3</option>
@@ -93,16 +94,19 @@
                     <div class="mb-3">
                         <label class="form-label">Email <span class="text-danger">*</span></label>
                         <input type="email" class="form-control" placeholder="Nhập vào email" name="email">
+                        <div class="text-danger" id="email-error"></div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Mật khẩu <span class="text-danger">*</span></label>
                         <input type="password" class="form-control" placeholder="Nhập vào mật khẩu" name="password">
+                        <div class="text-danger" id="password-error"></div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Xác nhận mật khẩu <span class="text-danger">*</span></label>
                         <input type="password" class="form-control" placeholder="Nhập vào xác nhận mật khẩu" name="passwordConfirmation">
+                        <div class="text-danger" id="password-confirmation-error"></div>
                     </div>
 
                     <button class="btn btn-primary">Đăng ký</button>
@@ -135,6 +139,7 @@
     </footer>
 
     <script src="./js/app.js" type="module"></script>
+    <script src="./js/screens/RegisterScreen.js" type="module"></script>
 </body>
 
 </html>

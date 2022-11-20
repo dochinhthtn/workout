@@ -1,4 +1,7 @@
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, signOut } from "../init.js";
+import {
+    auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, signOut,
+    setDoc, doc, db, getDocs
+} from "../init.js";
 
 // cú pháp của function
 /*
@@ -28,13 +31,17 @@ function login(email, password) {
  * @returns {Promise}
  */
 function register(name, email, password, otherInfo) {
-    return createUserWithEmailAndPassword(auth, email, password).then(function (user) {
+    return createUserWithEmailAndPassword(auth, email, password).then(function (response) {
+        // lấy user từ response
+        const user = response.user;
+
         // cập nhật profile user: tên hiển thị
         updateProfile(user, {
             displayName: name
         });
 
-        // TO-DO: lưu otherInfo vào firestore với ID user tương ứng
+        // lưu otherInfo vào firestore với ID user tương ứng
+        setDoc(doc(db, "users", user.uid), otherInfo);
     });
 }
 
