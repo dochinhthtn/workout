@@ -46,11 +46,11 @@
 
     <div class="container-fluid mb-3">
 
-        <form class="bg-white border rounded p-3 mb-3">
+        <form id="search-exercises-form" class="bg-white border rounded p-3 mb-3">
             <div class="row">
                 <div class="col-lg-3 d-flex align-items-center">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm bài tập">
+                        <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm bài tập">
                         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -59,8 +59,8 @@
 
                 <div class="col-lg-2">
                     <div class="form-floating">
-                        <select class="form-select" id="orderBy" name="orderBy">
-                            <option>Mới nhất</option>
+                        <select class="form-select" id="order-by" name="orderBy">
+                            <option>Ngày tạo</option>
                             <option>Calories</option>
                             <option>Rating</option>
                         </select>
@@ -70,7 +70,7 @@
 
                 <div class="col-lg-2">
                     <div class="form-floating">
-                        <select class="form-select" id="orderDirection" name="orderDirection">
+                        <select class="form-select" id="order-direction" name="orderDirection">
                             <option>Tăng dần</option>
                             <option>Giảm dần</option>
                         </select>
@@ -107,101 +107,6 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 mb-3">
-                <div class="exercise-container border rounded container-fluid">
-                    <div class="row">
-                        <div class="col-12 exercise-img rounded mb-2">
-                            <span class="h3 p-2 text-success float-end">
-                                <i class="fas fa-check-circle"></i>
-                            </span>
-                        </div>
-                        <div class="col-12 exercise-name mb-2 h3">Push-up</div>
-                        <div class="col-12 exercise-muscle mb-2">
-                            <span class="badge bg-info">Chest</span>
-                            <span class="badge bg-info">Arm</span>
-                        </div>
-                        <div class="col-6 exercise-calories">300 calories</div>
-                        <div class="col-6 exercise-rating text-warning text-end">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 mb-3">
-                <div class="exercise-container border rounded container-fluid">
-                    <div class="row">
-                        <div class="col-12 exercise-img rounded mb-2">
-                            <span class="h3 p-2 text-success float-end">
-                                <i class="fas fa-check-circle"></i>
-                            </span>
-                        </div>
-                        <div class="col-12 exercise-name mb-2 h3">Push-up</div>
-                        <div class="col-12 exercise-muscle mb-2">
-                            <span class="badge bg-info">Chest</span>
-                            <span class="badge bg-info">Arm</span>
-                        </div>
-                        <div class="col-6 exercise-calories">300 calories</div>
-                        <div class="col-6 exercise-rating text-warning text-end">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 mb-3">
-                <div class="exercise-container border rounded container-fluid">
-                    <div class="row">
-                        <div class="col-12 exercise-img rounded mb-2">
-                            <span class="h3 p-2 text-success float-end">
-                                <i class="fas fa-check-circle"></i>
-                            </span>
-                        </div>
-                        <div class="col-12 exercise-name mb-2 h3">Push-up</div>
-                        <div class="col-12 exercise-muscle mb-2">
-                            <span class="badge bg-info">Chest</span>
-                            <span class="badge bg-info">Arm</span>
-                        </div>
-                        <div class="col-6 exercise-calories">300 calories</div>
-                        <div class="col-6 exercise-rating text-warning text-end">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 mb-3">
-                <div class="exercise-container border rounded container-fluid">
-                    <div class="row">
-                        <div class="col-12 exercise-img rounded mb-2">
-                            <span class="h3 p-2 text-success float-end">
-                                <i class="fas fa-check-circle"></i>
-                            </span>
-                        </div>
-                        <div class="col-12 exercise-name mb-2 h3">Push-up</div>
-                        <div class="col-12 exercise-muscle mb-2">
-                            <span class="badge bg-info">Chest</span>
-                            <span class="badge bg-info">Arm</span>
-                        </div>
-                        <div class="col-6 exercise-calories">300 calories</div>
-                        <div class="col-6 exercise-rating text-warning text-end">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
@@ -228,6 +133,7 @@
         </div>
     </footer>
 
+    <script src="./js/screens/ExerciseListScreen.js" type="module"></script>
 </body>
 
 </html>
