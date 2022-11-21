@@ -1,6 +1,6 @@
 import {
-    auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, signOut,
-    setDoc, doc, db, getDocs
+    auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile,
+    setDoc, doc, db, getDocs, onAuthStateChanged
 } from "../init.js";
 
 // cú pháp của function
@@ -57,7 +57,25 @@ function getCurrentUser() {
  * Đăng xuất tài khoản hiện tại
  */
 function logout() {
-    signOut();
+    auth.signOut();
 }
 
-export { login, register, getCurrentUser, logout };
+/**
+ * Tự động kiểm tra trạng thái đăng nhập của người dùng
+ */
+function autoLogin() {
+    onAuthStateChanged(auth, function (user) {
+        // code được thực thi khi: đăng nhập, đăng ký, đăng xuất
+        if (user != null) {
+            // khi user đã đăng nhập -> chuyển hướng sang màn hình danh sách bài tập
+            window.location = './exercise_list.html';
+        } else {
+            if (window.location.pathname != '/login.html') {
+                // khi user chưa đăng nhập -> chuyển hướng sang màn hình đăng nhập
+                window.location = './login.html';
+            }
+        }
+    });
+}
+
+export { login, register, getCurrentUser, logout, autoLogin };

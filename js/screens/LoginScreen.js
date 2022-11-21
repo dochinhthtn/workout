@@ -1,21 +1,24 @@
-import { register } from "../models/user.js";
+import { autoLogin, login, logout } from "../models/user.js";
 
-// truy xuất form đăng ký
-const $registerForm = document.getElementById('register-form');
+// tự động đăng nhập
+autoLogin();
+
+// truy xuất form đăng nhập
+const $loginForm = document.getElementById('login-form');
 
 // truy xuất các thẻ báo lỗi
 const $emailError = document.getElementById('email-error');
 const $passwordError = document.getElementById('password-error');
 
-// xử lý khi form đăng ký được submit
-$registerForm.onsubmit = function (event) {
+// xử lý khi form đăng nhập được submit
+$loginForm.onsubmit = function (event) {
     // chặn gửi dữ liệu đến action của form -> xử lý dữ liệu của form ngay trên trang web
     event.preventDefault();
 
     // lấy dữ liệu người dùng nhập vào các ô input, select
-    let email = $registerForm.email.value;
-    let password = $registerForm.password.value;
-    
+    let email = $loginForm.email.value;
+    let password = $loginForm.password.value;
+
     // xóa nội dung của các thẻ thông báo lỗi
     $emailError.innerHTML = '';
     $passwordError.innerHTML = '';
@@ -33,34 +36,15 @@ $registerForm.onsubmit = function (event) {
         $passwordError.innerHTML = 'Mật khẩu không được bỏ trống';
     }
 
-    //TODO:
-    // check xem email & password có tồn tại trong hệ thống ko
-
-    //TODO: 
-    //check xem email và password có phải của cùng 1 user ko 
-
-
-
-    //if (password != '' && passwordConfirmation != '' && password != passwordConfirmation) {
-        //isPassed = false;
-        //$passwordConfirmationError.innerHTML = 'Xác nhận mật khẩu không đúng';
-    //}
-
-    // nếu toàn bộ dữ liệu nhập vào đều hợp lệ -> thực hiện đăng ký tài khoản
-
-    login("chinh.dovan@gmail.com", "12345678");
-
     if (isPassed) {
-        register(email, password,
-        }).then(function () {
-            alert('Đăng ký tài khoản thành công');
+        login(email, password).then(function () {
+            // chuyển hướng sang trang danh sách bài tập
+            window.location = './exercise_list.html';
         }).catch(function (error) {
-            if (error.message.includes('email-already-in-use')) $emailError.innerHTML = 'Email này đã tồn tại. Vui lòng lựa chọn email khác!';
+            console.log(error.message);
+            if (error.message.includes('auth/wrong-password') || error.message.includes('auth/user-not-found'))
+                $emailError.innerHTML = 'Tài khoản hoặc mật khẩu không chính xác!';
         });
 
     }
-
-    // register thực thi bất đồng bộ -> cần phải có "then" để thực hiện sau khi chạy register xong
-    // catch thực hiện việc bắt & xử lý lỗi nếu có khi đăng ký tài khoản
-
 }
