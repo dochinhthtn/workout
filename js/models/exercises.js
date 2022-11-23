@@ -3,20 +3,29 @@
 // chỗ filters a cứ truyền vào trước, xử lý thì để sau nhé
 // 
 
-import { transformDocs } from "../helpers.js";
-import { addDoc, collection, db, getDocs } from "../init.js";
+import { transformDoc, transformDocs } from "../helpers.js";
+import { addDoc, collection, db, doc, getDoc, getDocs } from "../init.js";
 
 /**
- * Lấy dữ liệu exercises
+ * Lấy toàn bộ exercises
  * @param {object} filters 
  * @returns {Promise}
  */
 function getExercises(filters = null) {
     return getDocs(collection(db, "exercises")).then(function (response) {
-        // log ra cái response để xem trong đấy có gì, dữ liệu cần thiết ở đâu
-        // chắc chắn dữ liệu nằm trong thuộc tính docs của response
         let result = transformDocs(response.docs);
         return result;
+    });
+}
+
+/**
+ * Lấy 1 exercise theo id
+ * @param {object} filters 
+ * @returns {Promise}
+ */
+function getExerciseById(id) {
+    return getDoc(doc(db, "exercises", id)).then(function (response) {
+        return transformDoc(response);
     });
 }
 
@@ -29,4 +38,4 @@ function createExercise(exercise) {
     return addDoc(collection(db, "exercises"), exercise);
 }
 
-export { getExercises, createExercise };
+export { getExercises, getExerciseById, createExercise };

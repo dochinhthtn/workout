@@ -2,9 +2,15 @@ import { getExercises } from "../models/exercises.js";
 
 let exercisesData = [];
 
-// truy xuất exercise-list
-const $exerciseList = document.getElementById('exercise-list');
+window.onload = function () {
+    // lấy dữ liệu exercises từ firestore
+    getExercises().then(function (data) {
+        exercisesData = data;
+        showExerciseList(exercisesData);
+    });
+}
 
+// xử lý sự kiện khi tìm kiếm exercises
 // truy xuất search-exercises-form
 const $searchExercisesForm = document.getElementById('search-exercises-form');
 $searchExercisesForm.onsubmit = function (event) {
@@ -21,6 +27,7 @@ $searchExercisesForm.onsubmit = function (event) {
     showExerciseList(filter);
 }
 
+// xử lý sự kiện khi sắp xếp exercises
 // truy xuất phần tử có id là order-by
 const $orderBy = document.getElementById('order-by');
 // truy xuất phần tử có id là order-direction
@@ -49,12 +56,14 @@ function sortExecises() {
     showExerciseList(sortedExercises);
 }
 
-
 /**
  * Hiển thị dữ liệu lên màn hình
  * @param {Array<any>} exercises 
  */
 function showExerciseList(exercises) {
+    // truy xuất exercise-list
+    const $exerciseList = document.getElementById('exercise-list');
+
     // xóa tất cả phần tử cũ trong exerciseList
     $exerciseList.innerHTML = '';
 
@@ -63,9 +72,9 @@ function showExerciseList(exercises) {
         const $exerciseContainer = document.createElement('div');
         $exerciseContainer.className = "col-lg-3 mb-3";
         $exerciseContainer.innerHTML = `
-    <div class="exercise-container border rounded container-fluid">
+    <div class="exercise-container border rounded container-fluid" onclick="window.location='./exercise_detail.html?exercise_id=${exercise.id}'">
         <div class="row">
-            <div class="col-12 exercise-img rounded mb-2" style="background-image: url('${exercise.image}');">
+            <div class="col-12 exercise-img rounded-top mb-2" style="background-image: url('${exercise.image}');">
                 <span class="h3 p-2 text-success float-end">
                     <i class="fas fa-check-circle"></i>
                 </span>
@@ -86,14 +95,3 @@ function showExerciseList(exercises) {
         $exerciseList.append($exerciseContainer);
     }
 }
-
-function start() {
-    // lấy dữ liệu exercises từ firestore
-    getExercises().then(function (data) {
-        exercisesData = data;
-        showExerciseList(exercisesData);
-    });
-
-}
-
-start();
