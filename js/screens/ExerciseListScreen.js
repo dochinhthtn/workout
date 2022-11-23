@@ -1,3 +1,4 @@
+import { showRating } from "../helpers.js";
 import { getExercises } from "../models/exercises.js";
 
 let exercisesData = [];
@@ -81,15 +82,10 @@ function showExerciseList(exercises) {
             </div>
             <div class="col-12 exercise-name mb-2 h3">${exercise.name}</div>
             <div class="col-12 exercise-muscle mb-2">
-                ${exercise.muscle.map(item => `<span class="badge bg-info">${item}</span>`).join('&nbsp;')}
+                ${exercise.muscles.map(item => `<span class="badge bg-info">${item}</span>`).join('&nbsp;')}
             </div>
             <div class="col-6 exercise-calories">${exercise.calories} calories</div>
-            <div class="col-6 exercise-rating text-warning text-end">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
+            <div class="col-6 exercise-rating text-warning text-end">${showRating(exercise.avg_rating)}</div>
         </div>
     </div>`;
         $exerciseList.append($exerciseContainer);

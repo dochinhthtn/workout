@@ -2,655 +2,1073 @@ import { createExercise } from "../models/exercises.js";
 
 let exerciseData = [
     {
-        "name": "Canis mesomelas",
-        "muscle": [
-            "Chest",
-            "Arm"
-        ],
-        "instruction": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
-        "difficulty": "Insane",
-        "description": "Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
-        "calories": 495,
-        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-04-24"
-    }, {
-        "name": "Anastomus oscitans",
-        "muscle": [
-            "Leg",
-            "Abs"
-        ],
-        "instruction": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.",
-        "difficulty": "Normal",
-        "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
-        "calories": 920,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-10-12"
-    }, {
-        "name": "Felis silvestris lybica",
-        "muscle": [
-            "Butt",
-            "Leg"
-        ],
-        "instruction": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
-        "difficulty": "Insane",
-        "description": "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.",
-        "calories": 111,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-23"
-    }, {
-        "name": "Panthera leo persica",
-        "muscle": [
-            "Butt",
-            "Abs"
-        ],
-        "instruction": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
-        "difficulty": "Advanced",
-        "description": "Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
-        "calories": 961,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-11-05"
-    }, {
-        "name": "Sagittarius serpentarius",
-        "muscle": [
-            "Leg",
-            "Arm"
-        ],
-        "instruction": "Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
-        "difficulty": "Advanced",
-        "description": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
-        "calories": 770,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-08-18"
-    }, {
-        "name": "Trichechus inunguis",
-        "muscle": [
-            "Butt",
-            "Chest"
-        ],
-        "instruction": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
-        "difficulty": "Easy",
-        "description": "Cras pellentesque volutpat dui.",
-        "calories": 407,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-04-10"
-    }, {
-        "name": "Varanus salvator",
-        "muscle": [
-            "Arm",
-            "Leg"
-        ],
-        "instruction": "Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.",
-        "difficulty": "Easy",
-        "description": "Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",
-        "calories": 118,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-03-19"
-    }, {
-        "name": "Branta canadensis",
-        "muscle": [
+        "name": "Naja haje",
+        "muscles": [
             "Abs",
-            "Arm"
-        ],
-        "instruction": "Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
-        "difficulty": "Advanced",
-        "description": "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
-        "calories": 824,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-04-11"
-    }, {
-        "name": "Ceratotherium simum",
-        "muscle": [
-            "Leg",
-            "Arm"
-        ],
-        "instruction": "In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
-        "difficulty": "Advanced",
-        "description": "Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.",
-        "calories": 365,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-23"
-    }, {
-        "name": "Cynomys ludovicianus",
-        "muscle": [
-            "Chest",
             "Leg"
         ],
-        "instruction": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
-        "difficulty": "Normal",
-        "description": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
-        "calories": 527,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "instruction": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.",
+        "difficulty": "Hard",
+        "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.",
+        "calories": 707,
         "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-08-16"
-    }, {
-        "name": "Anser anser",
-        "muscle": [
-            "Butt",
-            "Chest"
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2022-10-02",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
         ],
-        "instruction": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
-        "difficulty": "Easy",
-        "description": "In quis justo.",
-        "calories": 776,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-05-11"
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 4
     }, {
-        "name": "Tamiasciurus hudsonicus",
-        "muscle": [
-            "Leg",
+        "name": "Pteropus rufus",
+        "muscles": [
+            "Neck",
+            "Shoulder"
+        ],
+        "instruction": "Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "difficulty": "Normal",
+        "description": "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
+        "calories": 890,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-09-10",
+        "images": [
+
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Toxostoma curvirostre",
+        "muscles": [
+            "Arm",
+            "Shoulder"
+        ],
+        "instruction": "Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.",
+        "difficulty": "Normal",
+        "description": "Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+        "calories": 798,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-06-26",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 5
+    }, {
+        "name": "unavailable",
+        "muscles": [
+            "Abs",
             "Butt"
         ],
-        "instruction": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
-        "difficulty": "Advanced",
-        "description": "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
-        "calories": 102,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-01-18"
-    }, {
-        "name": "Damaliscus dorcas",
-        "muscle": [
-            "Chest",
-            "Butt"
-        ],
-        "instruction": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
+        "instruction": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.",
         "difficulty": "Easy",
-        "description": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
-        "calories": 512,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "description": "Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
+        "calories": 723,
         "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-02-17"
-    }, {
-        "name": "Terathopius ecaudatus",
-        "muscle": [
-            "Leg",
-            "Abs"
-        ],
-        "instruction": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
-        "difficulty": "Advanced",
-        "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
-        "calories": 843,
         "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-07-21"
+        "created_at": "2022-09-06",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 5
     }, {
-        "name": "Nesomimus trifasciatus",
-        "muscle": [
-            "Arm",
+        "name": "Hymenolaimus malacorhynchus",
+        "muscles": [
+            "Neck",
             "Chest"
-        ],
-        "instruction": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
-        "difficulty": "Insane",
-        "description": "Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
-        "calories": 528,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2021-12-02"
-    }, {
-        "name": "Haliaeetus leucoryphus",
-        "muscle": [
-            "Abs",
-            "Chest"
-        ],
-        "instruction": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",
-        "difficulty": "Normal",
-        "description": "Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo.",
-        "calories": 620,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-08-10"
-    }, {
-        "name": "Crotalus cerastes",
-        "muscle": [
-            "Butt",
-            "Leg"
-        ],
-        "instruction": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.",
-        "difficulty": "Insane",
-        "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
-        "calories": 907,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-21"
-    }, {
-        "name": "Felis wiedi or Leopardus weidi",
-        "muscle": [
-            "Arm",
-            "Leg"
-        ],
-        "instruction": "Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
-        "difficulty": "Normal",
-        "description": "Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
-        "calories": 916,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-20"
-    }, {
-        "name": "Aonyx cinerea",
-        "muscle": [
-            "Arm",
-            "Leg"
-        ],
-        "instruction": "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
-        "difficulty": "Advanced",
-        "description": "Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
-        "calories": 822,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-11-09"
-    }, {
-        "name": "Fratercula corniculata",
-        "muscle": [
-            "Arm",
-            "Abs"
-        ],
-        "instruction": "In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-        "difficulty": "Normal",
-        "description": "Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",
-        "calories": 100,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-10-25"
-    }, {
-        "name": "Grus canadensis",
-        "muscle": [
-            "Butt",
-            "Abs"
-        ],
-        "instruction": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
-        "difficulty": "Insane",
-        "description": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.",
-        "calories": 747,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-10-24"
-    }, {
-        "name": "Tockus flavirostris",
-        "muscle": [
-            "Arm",
-            "Leg"
-        ],
-        "instruction": "Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
-        "difficulty": "Insane",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
-        "calories": 381,
-        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-19"
-    }, {
-        "name": "Egretta thula",
-        "muscle": [
-            "Arm",
-            "Abs"
-        ],
-        "instruction": "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.",
-        "difficulty": "Advanced",
-        "description": "Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio.",
-        "calories": 863,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-07-20"
-    }, {
-        "name": "Sauromalus obesus",
-        "muscle": [
-            "Leg",
-            "Abs"
-        ],
-        "instruction": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.",
-        "difficulty": "Insane",
-        "description": "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
-        "calories": 722,
-        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-08-15"
-    }, {
-        "name": "Dasypus novemcinctus",
-        "muscle": [
-            "Butt",
-            "Leg"
-        ],
-        "instruction": "Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.",
-        "difficulty": "Advanced",
-        "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.",
-        "calories": 671,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-10-25"
-    }, {
-        "name": "Papilio canadensis",
-        "muscle": [
-            "Abs",
-            "Chest"
-        ],
-        "instruction": "Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.",
-        "difficulty": "Easy",
-        "description": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.",
-        "calories": 586,
-        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-04-17"
-    }, {
-        "name": "Paradoxurus hermaphroditus",
-        "muscle": [
-            "Butt",
-            "Arm"
-        ],
-        "instruction": "Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
-        "difficulty": "Insane",
-        "description": "Fusce consequat. Nulla nisl.",
-        "calories": 566,
-        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-06"
-    }, {
-        "name": "Felis caracal",
-        "muscle": [
-            "Arm",
-            "Leg"
-        ],
-        "instruction": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-        "difficulty": "Easy",
-        "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
-        "calories": 288,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2021-12-04"
-    }, {
-        "name": "Lama glama",
-        "muscle": [
-            "Abs",
-            "Leg"
-        ],
-        "instruction": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
-        "difficulty": "Insane",
-        "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum.",
-        "calories": 920,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-06"
-    }, {
-        "name": "Ovis ammon",
-        "muscle": [
-            "Arm",
-            "Abs"
-        ],
-        "instruction": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo.",
-        "difficulty": "Easy",
-        "description": "Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.",
-        "calories": 789,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2021-12-27"
-    }, {
-        "name": "Butorides striatus",
-        "muscle": [
-            "Leg",
-            "Chest"
-        ],
-        "instruction": "Ut tellus. Nulla ut erat id mauris vulputate elementum.",
-        "difficulty": "Advanced",
-        "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
-        "calories": 617,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-05-18"
-    }, {
-        "name": "Tayassu tajacu",
-        "muscle": [
-            "Butt",
-            "Chest"
-        ],
-        "instruction": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
-        "difficulty": "Easy",
-        "description": "Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.",
-        "calories": 249,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-03"
-    }, {
-        "name": "Casmerodius albus",
-        "muscle": [
-            "Leg",
-            "Arm"
-        ],
-        "instruction": "Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.",
-        "difficulty": "Normal",
-        "description": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.",
-        "calories": 388,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-08-27"
-    }, {
-        "name": "Dasypus novemcinctus",
-        "muscle": [
-            "Butt",
-            "Leg"
-        ],
-        "instruction": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
-        "difficulty": "Insane",
-        "description": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.",
-        "calories": 711,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-05-11"
-    }, {
-        "name": "Helogale undulata",
-        "muscle": [
-            "Arm",
-            "Leg"
         ],
         "instruction": "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
-        "difficulty": "Easy",
-        "description": "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",
-        "calories": 469,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "difficulty": "Hard",
+        "description": "Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.",
+        "calories": 546,
         "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-02-05"
-    }, {
-        "name": "Anitibyx armatus",
-        "muscle": [
-            "Chest",
-            "Abs"
-        ],
-        "instruction": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
-        "difficulty": "Insane",
-        "description": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.",
-        "calories": 951,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-05-04"
-    }, {
-        "name": "Crocuta crocuta",
-        "muscle": [
-            "Leg",
-            "Abs"
-        ],
-        "instruction": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
-        "difficulty": "Normal",
-        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
-        "calories": 682,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-24"
-    }, {
-        "name": "Procyon lotor",
-        "muscle": [
-            "Leg",
-            "Abs"
-        ],
-        "instruction": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
-        "difficulty": "Normal",
-        "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
-        "calories": 899,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-10-28"
-    }, {
-        "name": "Myotis lucifugus",
-        "muscle": [
-            "Chest",
-            "Leg"
-        ],
-        "instruction": "Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.",
-        "difficulty": "Insane",
-        "description": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio.",
-        "calories": 335,
         "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-08-05"
-    }, {
-        "name": "Catharacta skua",
-        "muscle": [
-            "Chest",
-            "Leg"
+        "created_at": "2022-08-12",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
         ],
-        "instruction": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.",
-        "difficulty": "Insane",
-        "description": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
-        "calories": 577,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-02-27"
-    }, {
-        "name": "Mycteria ibis",
-        "muscle": [
-            "Chest",
-            "Butt"
+        "equipments": [
+            "Chair"
         ],
-        "instruction": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
-        "difficulty": "Easy",
-        "description": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
-        "calories": 399,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-01-04"
+        "avg_rating": 3
     }, {
-        "name": "Cervus unicolor",
-        "muscle": [
+        "name": "Snycerus caffer",
+        "muscles": [
             "Leg",
-            "Arm"
+            "Neck"
         ],
-        "instruction": "Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.",
+        "instruction": "Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.",
         "difficulty": "Easy",
-        "description": "Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",
-        "calories": 696,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "description": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+        "calories": 599,
         "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-04-29"
-    }, {
-        "name": "Ciconia episcopus",
-        "muscle": [
-            "Chest",
-            "Leg"
-        ],
-        "instruction": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.",
-        "difficulty": "Easy",
-        "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.",
-        "calories": 415,
-        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-06-05"
-    }, {
-        "name": "Sciurus niger",
-        "muscle": [
-            "Chest",
-            "Abs"
-        ],
-        "instruction": "Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
-        "difficulty": "Insane",
-        "description": "Etiam vel augue.",
-        "calories": 768,
         "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-07-23"
-    }, {
-        "name": "Pitangus sulphuratus",
-        "muscle": [
-            "Arm",
-            "Leg"
+        "created_at": "2022-02-22",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
         ],
-        "instruction": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
-        "difficulty": "Advanced",
-        "description": "In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
-        "calories": 625,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-08-28"
-    }, {
-        "name": "Thylogale stigmatica",
-        "muscle": [
-            "Abs",
-            "Butt"
+        "equipments": [
+            "Dumbbell"
         ],
-        "instruction": "Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.",
-        "difficulty": "Insane",
-        "description": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.",
-        "calories": 479,
-        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-03-06"
+        "avg_rating": 3
     }, {
-        "name": "Alopochen aegyptiacus",
-        "muscle": [
-            "Butt",
-            "Leg"
-        ],
-        "instruction": "Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
-        "difficulty": "Advanced",
-        "description": "Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum.",
-        "calories": 392,
-        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
-        "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-02-18"
-    }, {
-        "name": "Paraxerus cepapi",
-        "muscle": [
-            "Arm",
+        "name": "Libellula quadrimaculata",
+        "muscles": [
+            "Shoulder",
             "Chest"
         ],
-        "instruction": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",
-        "difficulty": "Insane",
-        "description": "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
-        "calories": 876,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "instruction": "Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo.",
+        "difficulty": "Hard",
+        "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.",
+        "calories": 432,
         "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-10-31"
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2022-02-13",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
     }, {
-        "name": "Varanus salvator",
-        "muscle": [
+        "name": "Varanus sp.",
+        "muscles": [
+            "Shoulder",
+            "Butt"
+        ],
+        "instruction": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+        "difficulty": "Normal",
+        "description": "Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.",
+        "calories": 770,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-05-08",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Tachyglossus aculeatus",
+        "muscles": [
+            "Chest",
+            "Neck"
+        ],
+        "instruction": "Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
+        "difficulty": "Easy",
+        "description": "In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+        "calories": 584,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2021-12-15",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Propithecus verreauxi",
+        "muscles": [
+            "Arm",
+            "Butt"
+        ],
+        "instruction": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+        "difficulty": "Normal",
+        "description": "Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+        "calories": 592,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-02-23",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Acrobates pygmaeus",
+        "muscles": [
+            "Arm",
+            "Abs"
+        ],
+        "instruction": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl.",
+        "difficulty": "Hard",
+        "description": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+        "calories": 328,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2022-10-16",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Scolopax minor",
+        "muscles": [
+            "Leg",
+            "Abs"
+        ],
+        "instruction": "Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.",
+        "difficulty": "Hard",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+        "calories": 784,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-08-28",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Axis axis",
+        "muscles": [
+            "Leg",
+            "Neck"
+        ],
+        "instruction": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",
+        "difficulty": "Hard",
+        "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+        "calories": 690,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-03-30",
+        "images": [
+
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Columba palumbus",
+        "muscles": [
+            "Shoulder",
+            "Arm"
+        ],
+        "instruction": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+        "difficulty": "Easy",
+        "description": "Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+        "calories": 712,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-09-19",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Cygnus buccinator",
+        "muscles": [
+            "Neck",
+            "Arm"
+        ],
+        "instruction": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.",
+        "difficulty": "Hard",
+        "description": "Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+        "calories": 710,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2021-11-29",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Vulpes vulpes",
+        "muscles": [
+            "Butt",
+            "Leg"
+        ],
+        "instruction": "Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
+        "difficulty": "Normal",
+        "description": "Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",
+        "calories": 213,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-05-13",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "unavailable",
+        "muscles": [
+            "Arm",
+            "Shoulder"
+        ],
+        "instruction": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo.",
+        "difficulty": "Hard",
+        "description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero.",
+        "calories": 416,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2021-12-29",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 5
+    }, {
+        "name": "Kobus defassa",
+        "muscles": [
+            "Abs",
+            "Chest"
+        ],
+        "instruction": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
+        "difficulty": "Normal",
+        "description": "Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",
+        "calories": 323,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-03-09",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Aonyx cinerea",
+        "muscles": [
+            "Neck",
+            "Shoulder"
+        ],
+        "instruction": "Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
+        "difficulty": "Hard",
+        "description": "Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "calories": 464,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-01-13",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 5
+    }, {
+        "name": "Haliaetus leucogaster",
+        "muscles": [
+            "Shoulder",
+            "Arm"
+        ],
+        "instruction": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+        "difficulty": "Hard",
+        "description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.",
+        "calories": 229,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-04-22",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Macropus parryi",
+        "muscles": [
+            "Shoulder",
+            "Neck"
+        ],
+        "instruction": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.",
+        "difficulty": "Easy",
+        "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
+        "calories": 306,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-07-25",
+        "images": [
+
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 5
+    }, {
+        "name": "unavailable",
+        "muscles": [
+            "Shoulder",
+            "Leg"
+        ],
+        "instruction": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.",
+        "difficulty": "Hard",
+        "description": "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",
+        "calories": 926,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-06-15",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Upupa epops",
+        "muscles": [
+            "Arm",
+            "Shoulder"
+        ],
+        "instruction": "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
+        "difficulty": "Easy",
+        "description": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.",
+        "calories": 444,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2021-12-30",
+        "images": [
+
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Papio cynocephalus",
+        "muscles": [
+            "Abs",
+            "Butt"
+        ],
+        "instruction": "Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl.",
+        "difficulty": "Easy",
+        "description": "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+        "calories": 671,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2021-12-04",
+        "images": [
+
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Tamiasciurus hudsonicus",
+        "muscles": [
+            "Abs",
+            "Neck"
+        ],
+        "instruction": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+        "difficulty": "Easy",
+        "description": "In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+        "calories": 670,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-02-03",
+        "images": [
+
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Eolophus roseicapillus",
+        "muscles": [
+            "Neck",
+            "Butt"
+        ],
+        "instruction": "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.",
+        "difficulty": "Hard",
+        "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.",
+        "calories": 604,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-10-29",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Bubalornis niger",
+        "muscles": [
+            "Arm",
+            "Leg"
+        ],
+        "instruction": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
+        "difficulty": "Hard",
+        "description": "Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
+        "calories": 823,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2022-07-16",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 5
+    }, {
+        "name": "Centrocercus urophasianus",
+        "muscles": [
+            "Leg",
+            "Neck"
+        ],
+        "instruction": "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
+        "difficulty": "Normal",
+        "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.",
+        "calories": 700,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-05-17",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Eolophus roseicapillus",
+        "muscles": [
+            "Arm",
+            "Neck"
+        ],
+        "instruction": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.",
+        "difficulty": "Hard",
+        "description": "Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.",
+        "calories": 423,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-11-12",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Ammospermophilus nelsoni",
+        "muscles": [
+            "Chest",
+            "Neck"
+        ],
+        "instruction": "Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.",
+        "difficulty": "Normal",
+        "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",
+        "calories": 362,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-04-23",
+        "images": [
+
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Pteronura brasiliensis",
+        "muscles": [
             "Butt",
             "Arm"
         ],
-        "instruction": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
-        "difficulty": "Insane",
-        "description": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.",
-        "calories": 188,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "instruction": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
+        "difficulty": "Easy",
+        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+        "calories": 969,
         "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-09-18"
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-05-12",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 4
     }, {
-        "name": "Phalaropus fulicarius",
-        "muscle": [
-            "Abs",
+        "name": "Porphyrio porphyrio",
+        "muscles": [
+            "Butt",
+            "Chest"
+        ],
+        "instruction": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
+        "difficulty": "Hard",
+        "description": "Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
+        "calories": 101,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-09-17",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Gyps fulvus",
+        "muscles": [
+            "Butt",
+            "Neck"
+        ],
+        "instruction": "Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",
+        "difficulty": "Hard",
+        "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",
+        "calories": 257,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2022-02-02",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Plegadis falcinellus",
+        "muscles": [
+            "Leg",
             "Arm"
         ],
-        "instruction": "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
-        "difficulty": "Normal",
-        "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-        "calories": 103,
-        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "instruction": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
+        "difficulty": "Hard",
+        "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+        "calories": 156,
         "video": "https://youtu.be/kIaqbrWBexY",
-        "created_at": "2022-09-29"
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-08-10",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Pycnonotus nigricans",
+        "muscles": [
+            "Arm",
+            "Abs"
+        ],
+        "instruction": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",
+        "difficulty": "Normal",
+        "description": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.",
+        "calories": 365,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-08-31",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Acrantophis madagascariensis",
+        "muscles": [
+            "Butt",
+            "Chest"
+        ],
+        "instruction": "Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
+        "difficulty": "Hard",
+        "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
+        "calories": 424,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-11-10",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Anser anser",
+        "muscles": [
+            "Arm",
+            "Shoulder"
+        ],
+        "instruction": "Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.",
+        "difficulty": "Hard",
+        "description": "Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+        "calories": 623,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-05-14",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 5
+    }, {
+        "name": "Colaptes campestroides",
+        "muscles": [
+            "Neck",
+            "Shoulder"
+        ],
+        "instruction": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+        "difficulty": "Normal",
+        "description": "Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.",
+        "calories": 714,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-11-16",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Larus dominicanus",
+        "muscles": [
+            "Shoulder",
+            "Arm"
+        ],
+        "instruction": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+        "difficulty": "Hard",
+        "description": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.",
+        "calories": 694,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+        "created_at": "2022-05-23",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/5fa2dd/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Falco mexicanus",
+        "muscles": [
+            "Abs",
+            "Chest"
+        ],
+        "instruction": "Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.",
+        "difficulty": "Easy",
+        "description": "Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+        "calories": 908,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-11-10",
+        "images": [
+
+        ],
+        "equipments": [
+            "Dumbbell"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Papio cynocephalus",
+        "muscles": [
+            "Neck",
+            "Butt"
+        ],
+        "instruction": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+        "difficulty": "Easy",
+        "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
+        "calories": 648,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2022-05-17",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Lutra canadensis",
+        "muscles": [
+            "Leg",
+            "Chest"
+        ],
+        "instruction": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",
+        "difficulty": "Easy",
+        "description": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",
+        "calories": 825,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-10-07",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Otaria flavescens",
+        "muscles": [
+            "Butt",
+            "Chest"
+        ],
+        "instruction": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
+        "difficulty": "Easy",
+        "description": "Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+        "calories": 868,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-09-23",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Gazella granti",
+        "muscles": [
+            "Abs",
+            "Neck"
+        ],
+        "instruction": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.",
+        "difficulty": "Hard",
+        "description": "Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.",
+        "calories": 694,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-04-15",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/dddddd/000000"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 5
+    }, {
+        "name": "Laniarius ferrugineus",
+        "muscles": [
+            "Chest",
+            "Shoulder"
+        ],
+        "instruction": "Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+        "difficulty": "Easy",
+        "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",
+        "calories": 581,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/dddddd/000000",
+        "created_at": "2022-04-27",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 5
+    }, {
+        "name": "Petaurus norfolcensis",
+        "muscles": [
+            "Leg",
+            "Arm"
+        ],
+        "instruction": "Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis.",
+        "difficulty": "Easy",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.",
+        "calories": 204,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-08-01",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Bos taurus",
+        "muscles": [
+            "Butt",
+            "Chest"
+        ],
+        "instruction": "Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
+        "difficulty": "Hard",
+        "description": "Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+        "calories": 411,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2022-03-30",
+        "images": [
+
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Dasyurus maculatus",
+        "muscles": [
+            "Shoulder",
+            "Neck"
+        ],
+        "instruction": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.",
+        "difficulty": "Normal",
+        "description": "Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.",
+        "calories": 799,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/ff4444/ffffff",
+        "created_at": "2022-03-28",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/ff4444/ffffff"
+        ],
+        "equipments": [
+            "Chair"
+        ],
+        "avg_rating": 4
+    }, {
+        "name": "Cercopithecus aethiops",
+        "muscles": [
+            "Arm",
+            "Leg"
+        ],
+        "instruction": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
+        "difficulty": "Easy",
+        "description": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.",
+        "calories": 885,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-08-03",
+        "images": [
+            "http://dummyimage.com/1920x1080.png/cc0000/ffffff"
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 3
+    }, {
+        "name": "Neotis denhami",
+        "muscles": [
+            "Butt",
+            "Arm"
+        ],
+        "instruction": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+        "difficulty": "Hard",
+        "description": "Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+        "calories": 756,
+        "video": "https://youtu.be/kIaqbrWBexY",
+        "image": "http://dummyimage.com/1920x1080.png/cc0000/ffffff",
+        "created_at": "2022-03-30",
+        "images": [
+
+        ],
+        "equipments": [
+
+        ],
+        "avg_rating": 5
     }
 ];
 
