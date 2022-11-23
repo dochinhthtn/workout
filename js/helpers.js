@@ -27,4 +27,13 @@ function transformDoc(doc) {
     return newDoc;
 }
 
-export { transformDocs, transformDoc };
+/**
+ * 
+ * @param {Number} score
+ * @return {String} 
+ */
+function showRating(score) {
+    return `<i class="fas fa-star"></i>`.repeat(Math.ceil(score));
+}
+
+export { transformDocs, transformDoc, showRating };

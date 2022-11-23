@@ -28,8 +28,10 @@ function showExerciseDetail(exercise) {
     $name.innerHTML = exercise.name;
     $calories.innerHTML = exercise.calories;
     $difficulty.innerHTML = exercise.difficulty;
-    $equipments.innerHTML = exercise.equipments ?? "Không";
-    $muscle.innerHTML = exercise.muscle.map(item => `<span class="badge bg-info">${item}</span>`).join('&nbsp;');
+    $equipments.innerHTML = exercise.equipments.length > 0
+        ? exercise.equipments.map(item => `<span class="badge bg-warning">${item}</span>`).join('&nbsp;')
+        : "Không";
+    $muscle.innerHTML = exercise.muscles.map(item => `<span class="badge bg-info">${item}</span>`).join('&nbsp;');
     $description.innerHTML = exercise.description;
     $instruction.innerHTML = exercise.instruction;
     $video.src = exercise.video;
