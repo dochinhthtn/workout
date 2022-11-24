@@ -24,6 +24,9 @@ function transformDocs(docs) {
 function transformDoc(doc) {
     let newDoc = doc.data(); // newDoc là 1 object
     newDoc.id = doc.id; // thêm thuộc tính id vào newDoc
+    newDoc._original = doc;
+    newDoc._ref = doc.ref;
+    console.log(newDoc)
     return newDoc;
 }
 

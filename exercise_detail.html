@@ -8,9 +8,7 @@
     <title>Document</title>
 
     <!-- Fontawesome 5.15.4 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +22,7 @@
 <body>
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
-        <div class="container-fluid">
+        <div class="container">
             <a class="navbar-brand" href="javascript:void(0)">Workout Tracker</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -46,16 +44,12 @@
         </div>
     </nav>
 
-    <div class="container-fluid mb-3" id="exercise-detail">
+    <div class="container mb-3 main-content" id="exercise-detail">
         <h2 id="exercise-name" class="mb-3">Push-up</h2>
 
         <div class="row mb-3">
             <div class="col-lg-9">
-                <iframe width="100%" height="600" src="https://www.youtube.com/embed/rlcBZ-YsG8A"
-                    title="Chest workout - best home routine to kill pec muscle calisthenics and bodyweight"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <iframe id="exercise-video" width="100%" height="600" src="https://www.youtube.com/embed/rlcBZ-YsG8A" title="Chest workout - best home routine to kill pec muscle calisthenics and bodyweight" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <div class="col-lg-3 bg-white border rounded p-3">
@@ -190,22 +184,45 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-white py-4">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-1">
-                    <i class="fab fa-facebook h4"></i>
-                    &nbsp;&nbsp;&nbsp;
-                    <i class="fab fa-youtube h4"></i>
+    <div class="container-fluid mb-3 text-center d-none main-content" id="not-found">
+        <div class="h3 mb-4">Oops!</div>
+        <div class="h4">
+            Trang này không tồn tại hoặc đã bị xoá
+        </div>
+        <div class="h1">404</div>
+    </div>
 
-                    &nbsp;&nbsp;&nbsp;
-                    <i class="fab fa-twitter-square h4"></i>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div class="d-flex mb-3">
+                        <div class="rounded-circle bg-secondary me-2 d-flex justify-content-center align-items-center" style="width: 30px; height: 30px;"><i class="fas fa-envelope"></i></div>
+                        <div><a href="#" class="fw-bold">someone@gmail.com</a></div>
+                    </div>
+
+                    <div class="d-flex mb-3">
+                        <div class="rounded-circle bg-secondary me-2 d-flex justify-content-center align-items-center" style="width: 30px; height: 30px;"><i class="fas fa-phone"></i></div>
+                        <div><b>+84 82 1111 111</b></div>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="rounded-circle bg-secondary me-2 d-flex justify-content-center align-items-center" style="width: 30px; height: 30px;"><i class="fas fa-map"></i></div>
+                        <div><b>Ha Noi, Vietnam</b></div>
+                    </div>
+
                 </div>
 
-                <div class="col">
-                    Tel: 0987654321
-                    &nbsp;&nbsp;&nbsp;
-                    Email: someone@gmail.com
+                <div class="col-lg">
+                    <div class="fw-bold mb-3">Giới thiệu</div>
+                    <div class="mb-3 text-secondary">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+
+                    <div class="fw-bold mb-3">Subscribe us</div>
+                    <button class="btn btn-secondary me-3"><i class="fab fa-facebook"></i></button>
+                    <button class="btn btn-secondary me-3"><i class="fab fa-youtube"></i></button>
+                    <button class="btn btn-secondary me-3"><i class="fab fa-twitter-square"></i></button>
                 </div>
 
             </div>

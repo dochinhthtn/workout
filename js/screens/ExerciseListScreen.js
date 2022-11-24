@@ -3,13 +3,13 @@ import { getExercises } from "../models/exercises.js";
 
 let exercisesData = [];
 
-window.onload = function () {
+window.addEventListener('load', function () {
     // lấy dữ liệu exercises từ firestore
     getExercises().then(function (data) {
         exercisesData = data;
         showExerciseList(exercisesData);
     });
-}
+});
 
 // xử lý sự kiện khi tìm kiếm exercises
 // truy xuất search-exercises-form
@@ -71,7 +71,7 @@ function showExerciseList(exercises) {
     for (let exercise of exercises) {
         // tạo thẻ div để chứa nội dung cho hiển thị
         const $exerciseContainer = document.createElement('div');
-        $exerciseContainer.className = "col-lg-3 mb-3";
+        $exerciseContainer.className = "col-lg-4 mb-3";
         $exerciseContainer.innerHTML = `
     <div class="exercise-container border rounded container-fluid" onclick="window.location='./exercise_detail.html?exercise_id=${exercise.id}'">
         <div class="row">

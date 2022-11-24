@@ -1,7 +1,9 @@
+import { transformDoc } from "../helpers.js";
 import {
     auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile,
-    setDoc, doc, db, getDocs, onAuthStateChanged
+    setDoc, doc, db, getDocs, onAuthStateChanged, getDoc, collection
 } from "../init.js";
+import { getViewByUserId } from "./user_exercise.js";
 
 // cú pháp của function
 /*
@@ -41,7 +43,19 @@ function register(name, email, password, otherInfo) {
         });
 
         // lưu otherInfo vào firestore với ID user tương ứng
-        setDoc(doc(db, "users", user.uid), otherInfo);
+        setDoc(doc(db, "users", user.uid), {
+            name: name,
+            email: email,
+            photoURL: "",
+            ...otherInfo
+        });
+    });
+}
+
+function getUserById(userId) {
+    return getDoc(doc(db, "users", userId)).then(function (response) {
+        console.log(response);
+        return transformDoc(response);
     });
 }
 
@@ -50,7 +64,33 @@ function register(name, email, password, otherInfo) {
  * @returns {object}
  */
 function getCurrentUser() {
-    return auth.currentUser;
+    const json = localStorage.getItem('current_user');
+    if (!json) return null;
+    return JSON.parse(json);
+}
+
+/**
+ * Load dữ liệu của người dùng đăng nhập
+ */
+function loadCurrentUserData(isReload = false) {
+    const currentUser = auth.currentUser;
+    if (!currentUser) return;
+
+    if (!localStorage.getItem('current_user') || isReload) {
+        let info = null;
+        let views = null;
+        return Promise.all([
+            getUserById(currentUser.uid).then(data => info = data),
+            getViewByUserId(currentUser.uid).then(data => views = data)
+        ]).then(function () {
+            const tmp = { ...info, views };
+            localStorage.setItem("current_user", JSON.stringify(tmp));
+        });
+    }
+
+    return new Promise(function () {
+        return getCurrentUser();
+    });
 }
 
 /**
@@ -60,20 +100,20 @@ function logout() {
     auth.signOut();
 }
 
+window.logout = logout;
+
 /**
  * Tự động kiểm tra trạng thái đăng nhập của người dùng
  */
-function autoLogin() {
+function autoLogin(loggedInCallback = null, notLoggedInCallback = null) {
     onAuthStateChanged(auth, function (user) {
         // code được thực thi khi: đăng nhập, đăng ký, đăng xuất
         if (user != null) {
-            // khi user đã đăng nhập -> chuyển hướng sang màn hình danh sách bài tập
-            window.location = './exercise_list.html';
+            loadCurrentUserData().then(function () {
+                loggedInCallback && loggedInCallback(user);
+            });
         } else {
-            if (window.location.pathname != '/login.html') {
-                // khi user chưa đăng nhập -> chuyển hướng sang màn hình đăng nhập
-                window.location = './login.html';
-            }
+            notLoggedInCallback && notLoggedInCallback();
         }
     });
 }
