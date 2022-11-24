@@ -3,7 +3,7 @@ import {
     auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile,
     setDoc, doc, db, getDocs, onAuthStateChanged, getDoc, collection
 } from "../init.js";
-import { getViewByUserId } from "./user_exercise.js";
+import { getViewsByUserId } from "./user_exercise.js";
 
 // cú pháp của function
 /*
@@ -70,6 +70,14 @@ function getCurrentUser() {
 }
 
 /**
+ * Đồng bộ thông tin tài khoản hiện tại
+ * @param {Object} data
+ */
+function syncCurrentUser(data) {
+    localStorage.setItem('current_user', JSON.stringify(data));
+}
+
+/**
  * Load dữ liệu của người dùng đăng nhập
  */
 function loadCurrentUserData(isReload = false) {
@@ -81,7 +89,7 @@ function loadCurrentUserData(isReload = false) {
         let views = null;
         return Promise.all([
             getUserById(currentUser.uid).then(data => info = data),
-            getViewByUserId(currentUser.uid).then(data => views = data)
+            getViewsByUserId(currentUser.uid).then(data => views = data)
         ]).then(function () {
             const tmp = { ...info, views };
             localStorage.setItem("current_user", JSON.stringify(tmp));
@@ -97,6 +105,7 @@ function loadCurrentUserData(isReload = false) {
  * Đăng xuất tài khoản hiện tại
  */
 function logout() {
+    localStorage.removeItem('current_user');
     auth.signOut();
 }
 
@@ -118,4 +127,4 @@ function autoLogin(loggedInCallback = null, notLoggedInCallback = null) {
     });
 }
 
-export { login, register, getCurrentUser, logout, autoLogin };
+export { login, register, getCurrentUser, syncCurrentUser, logout, autoLogin };

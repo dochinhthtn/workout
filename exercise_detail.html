@@ -95,93 +95,21 @@
         <hr>
 
         <h3 class="mb-3">Đánh giá & bình luận</h3>
-        <form class="mb-3 border rounded p-3">
+        <form id="comment-form" class="mb-3 border rounded p-3">
             <div class="mb-3">
                 <label for="">Điểm số</label>
-                <div class="text-warning">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
+                <div id="rate-select"></div>
+                <div class="text-danger" id="score-error"></div>
             </div>
             <div class="form-floating mb-3">
                 <textarea class="form-control" id="comment" name="comment" placeholder="Nhập bình luận"></textarea>
-                <label for="comment">Bình luận</label>
+                <label for="comment">Bình luận <span class="text-danger">*</span></label>
             </div>
+            <div class="text-danger" id="comment-error"></div>
             <button class="btn btn-primary">Đánh giá</button>
         </form>
 
-        <div id="comment-list" class="mb-3">
-            <div class="comment-container border d-flex mb-3 p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="50" height="50">
-                <div class="w-100 ms-3">
-                    <div>
-                        <b class="comment-user">User 1</b>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="text-warning d-inline">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.</div>
-                </div>
-            </div>
-
-            <div class="comment-container border d-flex mb-3 p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="50" height="50">
-                <div class="w-100 ms-3">
-                    <div>
-                        <b class="comment-user">User 1</b>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="text-warning d-inline">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.</div>
-                </div>
-            </div>
-
-            <div class="comment-container border d-flex mb-3 p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="50" height="50">
-                <div class="w-100 ms-3">
-                    <div>
-                        <b class="comment-user">User 1</b>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="text-warning d-inline">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.</div>
-                </div>
-            </div>
-
-            <div class="comment-container border d-flex mb-3 p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="50" height="50">
-                <div class="w-100 ms-3">
-                    <div>
-                        <b class="comment-user">User 1</b>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="text-warning d-inline">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.</div>
-                </div>
-            </div>
-        </div>
+        <div id="comment-list" class="mb-3"></div>
     </div>
 
     <div class="container-fluid mb-3 text-center d-none main-content" id="not-found">
