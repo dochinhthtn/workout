@@ -1,6 +1,5 @@
-#main-content{
-    min-height: calc(100vh - 56px - 80px); 
-    
+.main-content {
+    min-height: calc(100vh - 56px - 230px - 2rem);
 }
 
 .exercise-container {
@@ -20,4 +19,3 @@
     background-repeat: no-repeat;
     background-position: center center;
 }
-

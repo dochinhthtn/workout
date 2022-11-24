@@ -1,6 +1,5 @@
-import { generateExerciseData } from "./data/exerciseData.js";
-import { createExercise, getExercises } from "./models/exercises.js";
-import { login, register } from "./models/user.js";
+import { autoLogin } from "./models/user.js";
 
-
-// generateExerciseData();
+window.addEventListener('load', function () {
+    autoLogin();
+});

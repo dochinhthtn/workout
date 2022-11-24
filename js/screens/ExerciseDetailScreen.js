@@ -1,19 +1,29 @@
+import "../app.js";
 import { getExerciseById } from "../models/exercises.js";
 
 let exerciseData = {};
 
-window.onload = function () {
+window.addEventListener('load', function () {
     // lấy exercise_id tại queryString
     const params = new URLSearchParams(window.location.search);
     const exerciseId = params.get("exercise_id");
 
+    if (!exerciseId) {
+        showNotFound();
+        return;
+    }
+
+    // lấy chi tiết exercise
     getExerciseById(exerciseId).then(function (exercise) {
         exerciseData = exercise;
         showExerciseDetail(exerciseData);
     }).catch(function (error) {
+        // console.log(error)
         showNotFound();
     });
-}
+
+    // lấy danh sách comment
+});
 
 function showExerciseDetail(exercise) {
     let $name = document.getElementById("exercise-name");
@@ -38,7 +48,11 @@ function showExerciseDetail(exercise) {
 }
 
 function showNotFound() {
+    const $exerciseDetail = document.getElementById('exercise-detail');
+    const $notFound = document.getElementById('not-found');
 
+    $exerciseDetail.classList.add('d-none');
+    $notFound.classList.remove('d-none');
 }
 
 function showComments(comments) {
