@@ -54,7 +54,6 @@ function register(name, email, password, otherInfo) {
 
 function getUserById(userId) {
     return getDoc(doc(db, "users", userId)).then(function (response) {
-        console.log(response);
         return transformDoc(response);
     });
 }
@@ -80,8 +79,9 @@ function syncCurrentUser(data) {
 /**
  * Load dữ liệu của người dùng đăng nhập
  */
-function loadCurrentUserData(isReload = false) {
+async function loadCurrentUserData(isReload = false) {
     const currentUser = auth.currentUser;
+    console.log(currentUser)
     if (!currentUser) return;
 
     if (!localStorage.getItem('current_user') || isReload) {
@@ -96,9 +96,7 @@ function loadCurrentUserData(isReload = false) {
         });
     }
 
-    return new Promise(function () {
-        return getCurrentUser();
-    });
+    return getCurrentUser();
 }
 
 /**
@@ -106,7 +104,7 @@ function loadCurrentUserData(isReload = false) {
  */
 function logout() {
     localStorage.removeItem('current_user');
-    auth.signOut();
+    return auth.signOut();
 }
 
 window.logout = logout;
@@ -128,4 +126,4 @@ function autoLogin(loggedInCallback = null, notLoggedInCallback = null) {
     });
 }
 
-export { login, register, getCurrentUser, syncCurrentUser, logout, autoLogin };
+export { login, register, getCurrentUser, syncCurrentUser, logout, autoLogin, loadCurrentUserData };

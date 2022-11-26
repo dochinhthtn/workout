@@ -1,4 +1,5 @@
-import { autoLogin, login, logout } from "../models/user.js";
+import { auth } from "../init.js";
+import { autoLogin, login, logout, loadCurrentUserData } from "../models/user.js";
 
 // tự động đăng nhập
 autoLogin();
@@ -38,8 +39,10 @@ $loginForm.onsubmit = function (event) {
 
     if (isPassed) {
         login(email, password).then(function () {
-            // chuyển hướng sang trang danh sách bài tập
-            window.location = './exercise_list.html';
+            loadCurrentUserData().then(function () {
+                // chuyển hướng sang trang danh sách bài tập
+                window.location = './exercise_list.html';
+            });
         }).catch(function (error) {
             console.log(error.message);
             if (error.message.includes('auth/wrong-password') || error.message.includes('auth/user-not-found'))
