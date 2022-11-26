@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="./exercise_list.html">Bài tập</a>
                     </li>
+                </ul>
+
+                <ul class="navbar-nav" id="nav-not-logged-in">
                     <li class="nav-item">
                         <a class="nav-link" href="./index.html">Đăng ký</a>
                     </li>
@@ -40,6 +43,20 @@
                     </li>
                 </ul>
 
+                <ul class="navbar-nav ms-3 d-none" id="nav-logged-in">
+                    <li class="nav-item d-flex align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="35" height="35" class="rounded-circle">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="current-user-name" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                User 1
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="./profile.html">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="./logout.html">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -95,93 +112,86 @@
         <hr>
 
         <h3 class="mb-3">Đánh giá & bình luận</h3>
-        <form class="mb-3 border rounded p-3">
-            <div class="mb-3">
-                <label for="">Điểm số</label>
-                <div class="text-warning">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-            <div class="form-floating mb-3">
-                <textarea class="form-control" id="comment" name="comment" placeholder="Nhập bình luận"></textarea>
-                <label for="comment">Bình luận</label>
-            </div>
-            <button class="btn btn-primary">Đánh giá</button>
-        </form>
 
-        <div id="comment-list" class="mb-3">
-            <div class="comment-container border d-flex mb-3 p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="50" height="50">
-                <div class="w-100 ms-3">
-                    <div>
-                        <b class="comment-user">User 1</b>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="text-warning d-inline">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+        <div class="score-info mb-3 border rounded container-fluid py-2">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div style="font-size: 50px;" class="mb-1" id="avg-score">4.0</div>
+
+                    <div id="avg-star" class="text-warning mb-1">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <span class="text-secondary">
+                        Đánh giá bởi <b id="user-number">100</b> người dùng
+                    </span>
+                </div>
+
+                <div class="col-lg" id="star-progress">
+
+                    <div class="d-flex align-items-center mb-2">
+                        <b class="me-3"><i class="fas fa-star"></i> 5</b>
+                        <div class="progress w-50">
+                            <div class="progress-bar bg-success" role="progressbar" id="five-star-number"></div>
                         </div>
                     </div>
-                    <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.</div>
-                </div>
-            </div>
 
-            <div class="comment-container border d-flex mb-3 p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="50" height="50">
-                <div class="w-100 ms-3">
-                    <div>
-                        <b class="comment-user">User 1</b>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="text-warning d-inline">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                    <div class="d-flex align-items-center mb-2">
+                        <b class="me-3"><i class="fas fa-star"></i> 4</b>
+                        <div class="progress w-50">
+                            <div class="progress-bar bg-success" role="progressbar" id="four-star-number"></div>
                         </div>
                     </div>
-                    <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.</div>
-                </div>
-            </div>
 
-            <div class="comment-container border d-flex mb-3 p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="50" height="50">
-                <div class="w-100 ms-3">
-                    <div>
-                        <b class="comment-user">User 1</b>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="text-warning d-inline">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                    <div class="d-flex align-items-center mb-2">
+                        <b class="me-3"><i class="fas fa-star"></i> 3</b>
+                        <div class="progress w-50">
+                            <div class="progress-bar bg-success" role="progressbar" id="three-star-number"></div>
                         </div>
                     </div>
-                    <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.</div>
-                </div>
-            </div>
 
-            <div class="comment-container border d-flex mb-3 p-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" width="50" height="50">
-                <div class="w-100 ms-3">
-                    <div>
-                        <b class="comment-user">User 1</b>
-                        &nbsp;&nbsp;&nbsp;
-                        <div class="text-warning d-inline">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                    <div class="d-flex align-items-center mb-2">
+                        <b class="me-3"><i class="fas fa-star"></i> 2</b>
+                        <div class="progress w-50">
+                            <div class="progress-bar bg-success" role="progressbar" id="two-star-number"></div>
                         </div>
                     </div>
-                    <div>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.</div>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <b class="me-3"><i class="fas fa-star"></i> 1</b>
+                        <div class="progress w-50">
+                            <div class="progress-bar bg-success" role="progressbar" id="one-star-number"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <form id="comment-form" class="mb-3 border rounded p-3">
+            <div class="mb-3">
+                <label for="">Điểm số</label>
+                <div id="rate-select"></div>
+                <div class="text-danger" id="score-error"></div>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" id="comment" name="comment" placeholder="Nhập bình luận"></textarea>
+                <label for="comment">Bình luận <span class="text-danger">*</span></label>
+            </div>
+            <div class="text-danger" id="comment-error"></div>
+            <button class="btn btn-primary">Đánh giá</button>
+        </form>
+
+        <div id="comment-alert" class="mb-3 alert alert-success d-none">
+            <div class="d-flex justify-content-between align-items-center">
+                <span>Bạn đã đánh giá bài tập này!</span>
+                <button id="recomment-exercise" class="btn btn-primary">Thay đổi</button>
+            </div>
+        </div>
+
+        <div id="comment-list" class="mb-3"></div>
     </div>
 
     <div class="container-fluid mb-3 text-center d-none main-content" id="not-found">

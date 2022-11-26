@@ -26,12 +26,11 @@ function transformDoc(doc) {
     newDoc.id = doc.id; // thêm thuộc tính id vào newDoc
     newDoc._original = doc;
     newDoc._ref = doc.ref;
-    console.log(newDoc)
     return newDoc;
 }
 
 /**
- * 
+ * Hiển thị rate dưới dạng các star
  * @param {Number} score
  * @return {String} 
  */
@@ -39,4 +38,37 @@ function showRating(score) {
     return `<i class="fas fa-star"></i>`.repeat(Math.ceil(score));
 }
 
-export { transformDocs, transformDoc, showRating };
+/**
+ * Tạo lựa chọn rating
+ * @param {String} elementId 
+ */
+function makeRateSelect(elementId, maxScore = 5) {
+    const $rate = document.getElementById(elementId);
+    $rate.classList.add('text-warning');
+    $rate.innerHTML = '';
+
+    $rate.getValue = function () {
+        return $rate.getElementsByClassName('fas').length;
+    }
+
+    for (let i = 0; i < maxScore; i++) {
+        const $star = document.createElement('i');
+        $star.className = 'me-3 rate-star far fa-star';
+
+        const value = i + 1;
+        $star.onclick = function () {
+            const $stars = $rate.getElementsByClassName('rate-star');
+            for (let j = 0; j < $stars.length; j++) {
+                const $item = $stars[j];
+                $item.className = j < value ? 'me-3 rate-star fas fa-star' : 'me-3 rate-star far fa-star';
+            }
+        }
+
+        $rate.append($star);
+    }
+
+    return $rate;
+}
+
+
+export { transformDocs, transformDoc, showRating, makeRateSelect };

@@ -1,3 +1,4 @@
+import "../app.js";
 import { showRating } from "../helpers.js";
 import { getExercises } from "../models/exercises.js";
 
@@ -48,6 +49,7 @@ function sortExecises() {
 
         if (orderBy == 'Ngày tạo') compareValue = new Date(a.created_at) - new Date(b.created_at);
         if (orderBy == 'Calories') compareValue = a.calories - b.calories;
+        if (orderBy == 'Rating') compareValue = a.avg_rating - b.avg_rating;
 
         if (orderDirection == 'Giảm dần') compareValue = -compareValue;
 
