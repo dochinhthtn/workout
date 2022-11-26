@@ -4,7 +4,7 @@
 // 
 
 import { transformDoc, transformDocs } from "../helpers.js";
-import { addDoc, collection, db, doc, getDoc, getDocs } from "../init.js";
+import { addDoc, collection, db, doc, getDoc, getDocs, query, updateDoc, where } from "../init.js";
 
 /**
  * Lấy toàn bộ exercises
@@ -38,4 +38,32 @@ function createExercise(exercise) {
     return addDoc(collection(db, "exercises"), exercise);
 }
 
-export { getExercises, getExerciseById, createExercise };
+/**
+ * Tính toán lại điểm trung bình của exercise
+ * @param {*} exercise_id 
+ */
+async function recalculateExerciseAvgScore(exerciseId) {
+    const ref = query(
+        collection(db, "user_exercise"),
+        where("exercise_id", "==", exerciseId),
+        where("score", "!=", null)
+    );
+
+    const response = await getDocs(ref);
+    const data = transformDocs(response.docs);
+
+    let result = 0;
+    if (data.length > 0) {
+        for (let comment of data) {
+            result += comment.score;
+        }
+        result = result / data.length;
+    }
+
+    await updateDoc(doc(db, "exercises", exerciseId), {
+        avg_rating: result
+    })
+}
+
+
+export { getExercises, getExerciseById, createExercise, recalculateExerciseAvgScore };

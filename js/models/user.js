@@ -115,6 +115,7 @@ window.logout = logout;
  * Tự động kiểm tra trạng thái đăng nhập của người dùng
  */
 function autoLogin(loggedInCallback = null, notLoggedInCallback = null) {
+
     onAuthStateChanged(auth, function (user) {
         // code được thực thi khi: đăng nhập, đăng ký, đăng xuất
         if (user != null) {

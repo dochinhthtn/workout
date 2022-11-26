@@ -1,5 +1,6 @@
 import { transformDocs } from "../helpers.js";
 import { addDoc, collection, db, doc, getDoc, getDocs, query, setDoc, where } from "../init.js";
+import { recalculateExerciseAvgScore } from "./exercises.js";
 import { getCurrentUser } from "./user.js";
 
 function getViewsByUserId(userId) {
@@ -40,7 +41,8 @@ function rateExercise(exerciseId, score, comment) {
 
     return createOrUpdateUserExercise(exerciseId, currentUser.id, {
         score,
-        comment
+        comment,
+        comment_at: new Date().toISOString()
     });
 
 }
@@ -52,27 +54,37 @@ async function createOrUpdateUserExercise(exerciseId, userId, data = {}) {
         where("exercise_id", "==", exerciseId)
     );
 
-    const response = await getDoc(ref);
+    const response = await getDocs(ref);
 
-    const tmp = {
-        exercise_id: exerciseId,
-        exercise: doc(db, "exercises", exerciseId),
-        user_id: userId,
-        user: doc(db, "users", userId),
-        is_completed: false,
-        is_favorite: false,
-        score: null,
-        comment: null,
-        latest_watch_at: new Date().toISOString(),
-        ...data,
-    };
+    let input = {};
 
     if (response.docs.length == 0) {
-        await addDoc(collection(db, "user_exercise"), tmp);
+        input = {
+            exercise_id: exerciseId,
+            exercise: doc(db, "exercises", exerciseId),
+            user_id: userId,
+            user: doc(db, "users", userId),
+            is_completed: false,
+            is_favorite: false,
+            score: null,
+            comment: null,
+            latest_watch_at: new Date().toISOString(),
+            comment_at: data.score != null ? new Date().toISOString() : null,
+            ...data,
+        };
+        await addDoc(collection(db, "user_exercise"), input);
     } else {
         const id = response.docs[0].id;
-        await setDoc(doc(db, "user_exercise", id), tmp);
+        const oldData = response.docs[0].data();
+        input = { ...oldData, ...data };
+        await setDoc(doc(db, "user_exercise", id), input);
     }
+
+    if (input.score) {
+        recalculateExerciseAvgScore(exerciseId);
+    }
+
+    return input;
 }
 
 export { getViewsByUserId, getViewsByExerciseId, viewExercise, rateExercise, createOrUpdateUserExercise };

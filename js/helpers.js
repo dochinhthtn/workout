@@ -26,7 +26,6 @@ function transformDoc(doc) {
     newDoc.id = doc.id; // thêm thuộc tính id vào newDoc
     newDoc._original = doc;
     newDoc._ref = doc.ref;
-    console.log(newDoc)
     return newDoc;
 }
 
