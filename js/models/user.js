@@ -1,7 +1,7 @@
 import { transformDoc } from "../helpers.js";
 import {
     auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile,
-    setDoc, doc, db, getDocs, onAuthStateChanged, getDoc, collection
+    setDoc, doc, db, getDocs, onAuthStateChanged, getDoc, collection, updatePassword
 } from "../init.js";
 import { getViewsByUserId } from "./user_exercise.js";
 
@@ -37,18 +37,31 @@ function register(name, email, password, otherInfo) {
         // lấy user từ response
         const user = response.user;
 
-        // cập nhật profile user: tên hiển thị
-        updateProfile(user, {
-            displayName: name
-        });
-
-        // lưu otherInfo vào firestore với ID user tương ứng
-        setDoc(doc(db, "users", user.uid), {
+        updateUser(user, {
             name: name,
             email: email,
             photoURL: "",
             ...otherInfo
         });
+    });
+}
+
+async function updateUser(user, data) {
+    // cập nhật profile user: tên hiển thị
+    await updateProfile(user, {
+        displayName: data.name
+    });
+
+    // lưu otherInfo vào firestore với ID user tương ứng
+    await setDoc(doc(db, "users", user.uid), data);
+}
+
+function updateCurrentUser(data) {
+    const user = auth.currentUser;
+    if (!user) return;
+
+    return updateUser(user, data).then(function () {
+        syncCurrentUser(data);
     });
 }
 
@@ -126,4 +139,12 @@ function autoLogin(loggedInCallback = null, notLoggedInCallback = null) {
     });
 }
 
-export { login, register, getCurrentUser, syncCurrentUser, logout, autoLogin, loadCurrentUserData };
+/**
+ * Thay đổi mật khẩu người dùng đăng nhập
+ */
+function changeCurrentUserPassword(newPassword) {
+    const currentUser = auth.currentUser;
+    return updatePassword(currentUser, newPassword);
+}
+
+export { login, register, getCurrentUser, syncCurrentUser, logout, autoLogin, loadCurrentUserData, updateUser, updateCurrentUser, changeCurrentUserPassword };
