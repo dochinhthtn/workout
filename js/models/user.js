@@ -86,7 +86,12 @@ function getCurrentUser() {
  * @param {Object} data
  */
 function syncCurrentUser(data) {
-    localStorage.setItem('current_user', JSON.stringify(data));
+    const oldData = getCurrentUser();
+    const newData = {
+        ...oldData,
+        ...data
+    };
+    localStorage.setItem('current_user', JSON.stringify(newData));
 }
 
 /**

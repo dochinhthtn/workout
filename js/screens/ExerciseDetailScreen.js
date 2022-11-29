@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
         exerciseData = exercise;
         showExerciseDetail(exerciseData);
     }).catch(function (error) {
-        // console.log(error)
+        console.error(error)
         showNotFound();
     });
 
@@ -126,14 +126,17 @@ window.addEventListener('load', function () {
 });
 
 function showExerciseDetail(exercise) {
-    let $name = document.getElementById("exercise-name");
-    let $calories = document.getElementById("exercise-calories");
-    let $difficulty = document.getElementById("exercise-difficulty");
-    let $equipments = document.getElementById("exercise-equipments");
-    let $muscle = document.getElementById("exercise-muscle");
-    let $description = document.getElementById("exercise-description");
-    let $instruction = document.getElementById("exercise-instruction");
-    let $video = document.getElementById("exercise-video");
+    const $name = document.getElementById("exercise-name");
+    const $calories = document.getElementById("exercise-calories");
+    const $difficulty = document.getElementById("exercise-difficulty");
+    const $equipments = document.getElementById("exercise-equipments");
+    const $muscle = document.getElementById("exercise-muscle");
+    const $description = document.getElementById("exercise-description");
+    const $instruction = document.getElementById("exercise-instruction");
+    const $video = document.getElementById("exercise-video");
+    const $purposes = document.getElementById("exercise-purposes");
+    const $genders = document.getElementById("exercise-genders");
+    const $ages = document.getElementById("exercise-ages");
 
     $name.innerHTML = exercise.name;
     $calories.innerHTML = exercise.calories;
@@ -145,6 +148,9 @@ function showExerciseDetail(exercise) {
     $description.innerHTML = exercise.description;
     $instruction.innerHTML = exercise.instruction;
     $video.src = exercise.video;
+    $purposes.innerHTML = exercise.recommended_purposes.map(item => `<p>- ${item}</p>`).join('');
+    $genders.innerHTML = exercise.recommended_genders.join(' và ');
+    $ages.innerHTML = exercise.recommended_ages;
 }
 
 function showNotFound() {

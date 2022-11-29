@@ -63,18 +63,23 @@
 
     <div class="container mb-3 main-content">
 
-        <form id="search-exercises-form" class="bg-white border rounded p-3 mb-3">
+        <form id="search-exercises-form" class="bg-white border rounded px-3 mb-3">
             <div class="row">
-                <div class="col-lg-3 d-flex align-items-center">
+                <div class="col-lg-3 d-flex align-items-center py-2">
                     <div class="input-group">
                         <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm bài tập">
                         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
 
-                <div class="col"></div>
+                <div class="col-lg py-2 d-flex align-items-center">
+                    <div id="filter-by-recommended" class="d-none align-items-center">
+                        <input type="checkbox" id="recommended-check" class="me-2">
+                        <label for="recommended-check" style="cursor: pointer;">Phù hợp với tôi?</label>
+                    </div>
+                </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-2 py-2">
                     <div class="form-floating">
                         <select class="form-select" id="order-by" name="orderBy">
                             <option>Ngày tạo</option>
@@ -85,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-2 py-2">
                     <div class="form-floating">
                         <select class="form-select" id="order-direction" name="orderDirection">
                             <option>Tăng dần</option>
